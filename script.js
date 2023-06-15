@@ -10,18 +10,19 @@ function play(computerChoice, userChoice){
     }
     else if ((computerChoice === "rock" && userChoice === "scissors")
      || (computerChoice === "paper" && userChoice === "rock")
-     || (computerChoice === "scissor" && userChoice === "paper")){
+     || (computerChoice === "scissors" && userChoice === "paper")){
         return `You lose! ${computerChoice} beats ${userChoice}`;
     }
     else if ((userChoice === "rock" && computerChoice === "scissors")
     || (userChoice === "paper" && computerChoice === "rock")
-    || (userChoice === "scissor" && computerChoice === "paper")){
+    || (userChoice === "scissors" && computerChoice === "paper")){
        return `You win! ${userChoice} beats ${computerChoice}`;
    }
 }
 
 
-let userChoice = prompt("Enter a choice either rock, paper or scissors: ").toLowerCase();
-let computerChoice = getComputerChoice();
-
-console.log(play(computerChoice,userChoice));
+for (let i = 1; i <= 5; i++){
+    let userChoice = prompt("Enter a choice either rock, paper or scissors: ").toLowerCase();
+    let computerChoice = getComputerChoice();
+    console.log(play(computerChoice,userChoice));
+}
