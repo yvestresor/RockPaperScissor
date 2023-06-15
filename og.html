@@ -20,6 +20,7 @@
       let playerSelection;
       let computerScore;
       let playerScore;
+      let color;
       
       game();
 
@@ -62,16 +63,19 @@
           playerSelection = playerSelection.toLowerCase();
           if (computerSelection==playerSelection) {
               alert('Tie game!');
+              color = "yellow";
               return 'Tie game\nComputer Score: ' + 
                       computerScore + '\nYour Score: ' + playerScore;
           } else if ((computerSelection=='rock' && playerSelection=='scissors') 
                     || (computerSelection=='scissors' && playerSelection=='paper') 
                     || (computerSelection=='paper' && playerSelection=='rock')) {
               alert('You lose! ' + computerSelection + ' beats ' + playerSelection);
+              color = "red";
               return 'Computer Score: ' + ++computerScore + 
                       '\nYour Score: ' + playerScore;
           } else {
               alert('You win! ' + playerSelection + ' beats ' + computerSelection);
+              color = "green";
               return 'Your Score: ' + ++playerScore + 
                       '\nComputer Score: ' + computerScore;
           }

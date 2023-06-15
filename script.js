@@ -126,17 +126,19 @@ const myArray = ["Rock", "Paper", "Scissors"];
 function computerPlay() {
   return myArray[~~(Math.random() * myArray.length)];
 }
-
+let color;
 function playRound(playerSelection, computerSelection) {
   computerSelection = computerPlay().toLowerCase();
   playerSelection = playerSelection.toLowerCase();
   if (computerSelection == playerSelection) {
+    color = "blue";
     displayResults("Tie game!");
   } else if (
     (computerSelection == "rock" && playerSelection == "scissors") ||
     (computerSelection == "scissors" && playerSelection == "paper") ||
     (computerSelection == "paper" && playerSelection == "rock")
   ) {
+    color = "red";
     computerScore = ++computerScore;
     keepCpuScore();
     if (computerScore === 1) {
@@ -166,6 +168,7 @@ function playRound(playerSelection, computerSelection) {
       displayResults(`${computerSelection} beats ${playerSelection}`);
     }
   } else {
+    color = "green";
     playerScore = ++playerScore;
     keepPlayerScore();
     if (playerScore === 1) {
@@ -209,6 +212,7 @@ function displayResults(str) {
     delay: 0,
     easing: "ease-out",
   });
+  container.style.color = color;
   container.textContent = str;
 }
 
