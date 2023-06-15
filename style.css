@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  background: black;
-  color: white;
+  background: rgb(202, 209, 100);
+  color: rgba(30, 7, 39, 0.048);
   font-family: roboto, arial, sans-serif;
 }
 #title,
