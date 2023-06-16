@@ -3,6 +3,7 @@ let computerSelection;
 let playerSelection;
 let computerScore = 0;
 let playerScore = 0;
+let noScore = 0;
 
 let buttons = document.querySelectorAll(".button");
 const body = document.querySelector("body");
@@ -132,6 +133,8 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
   if (computerSelection == playerSelection) {
     color = "blue";
+    noScore +=1;
+    keepNoScore();
     displayResults("Tie game!");
   } else if (
     (computerSelection == "rock" && playerSelection == "scissors") ||
@@ -139,7 +142,7 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection == "paper" && playerSelection == "rock")
   ) {
     color = "red";
-    computerScore = ++computerScore;
+    computerScore += 1;
     keepCpuScore();
     if (computerScore === 1) {
       displayResults(
@@ -169,7 +172,7 @@ function playRound(playerSelection, computerSelection) {
     }
   } else {
     color = "green";
-    playerScore = ++playerScore;
+    playerScore += 1;
     keepPlayerScore();
     if (playerScore === 1) {
       displayResults(
@@ -291,4 +294,17 @@ function keepCpuScore() {
   });
 
   computerScoreBox.textContent = computerScore;
+}
+function keepNoScore() {
+  let noScoreBox = document.querySelector("#no-score");
+
+  noScoreBox.animate([{ opacity: 0 }, { opacity: 1 }], {
+    duration: 300,
+    fill: "forwards",
+    iterations: 1,
+    delay: 0,
+    easing: "ease-out",
+  });
+
+  noScoreBox.textContent = noScore;
 }
