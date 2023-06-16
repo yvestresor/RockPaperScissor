@@ -7,6 +7,7 @@ let noScore = 0;
 
 let buttons = document.querySelectorAll(".button");
 const body = document.querySelector("body");
+const title = document.querySelector("#title");
 const main = document.querySelector("main");
 const endAlrt = document.querySelector("#end-alert");
 const endDesc = document.querySelector("#end-desc");
